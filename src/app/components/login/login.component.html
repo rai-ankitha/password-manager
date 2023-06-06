@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="card-container">
+        <div class="card-left">
+<img src="./assets/images/authentication/logo.png" alt="logo">
+<div id="logo-text">Protect & Manage every 
+    password in your business</div>
+        </div>
+        <div class="verticle-line"></div>
+        <div *ngIf="!isSignup" class="card-right">
+            <div id="logo-text">SIGN IN TO YOUR ACCOUNT</div>
+             <form class="form-class" action="">
+                <input type="text" class="form-input" name="mobile" placeholder="Mobile Number">
+                <input type="text" class="form-input" name="password" placeholder="MPin">
+                <div id="forgot-text">Forgot your password?</div>
+                <button  class="login-btn">SIGN IN</button>
+             </form>
+<div (click)="goToSignup()" id="signup-text">Don't have a Account? SIGNUP</div>
+        </div>
+
+
+        <div *ngIf="isSignup" class="card-right">
+            <div id="logo-text">SIGN UP</div>
+             <form class="form-class" action="">
+                <input type="text" class="form-input" name="mobile" placeholder="Enter Mobile Number">
+                <input type="text" class="form-input" name="password" placeholder="Enter 4 Digit MPin">
+                <input type="text" class="form-input" name="password" placeholder="Re-Enter 4 Digit MPin">
+                <button class="signin-btn">SIGN UP</button>
+             </form>
+
+        </div>
+    </div>
+</div>
+
+
