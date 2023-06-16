@@ -1,0 +1,56 @@
+<div class="card-right">
+    <div id="card-heading">SIGN UP</div>
+    <form [formGroup]="registerForm" class="form-class" action="">
+      <input
+        type="email"
+        class="form-input"
+        formControlName="email" (focus)="notFocused=false" (focusout)="notFocused=true"
+        placeholder="Enter Email Id"
+        
+      />
+      <div *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched) " class="alert">
+          
+        <div class="error-text" *ngIf="registerForm.controls['email'].errors!['required']">
+            Please enter Email
+          </div>
+          <div class="error-text" *ngIf="registerForm.controls['email'].errors!['pattern'] && notFocused">
+            Invalid email address
+          </div>
+      </div>
+      <input
+      type="text"
+      inputmode="numeric"
+        class="form-input"
+        formControlName="password" (focus)="notFocused=false" (focusout)="notFocused=true"
+        placeholder="Enter 4 Digit MPin"
+        
+      />
+      <div *ngIf="registerForm.controls['password'].invalid&& (registerForm.controls['password'].dirty || registerForm.controls['password'].touched) " class="alert">
+          
+        <div class="error-text" *ngIf="registerForm.controls['password'].errors!['pattern'] && notFocused">
+          Enter a valid 4 digit Mpin
+        </div>
+    
+      </div>
+      <div id="password-field"><input class="form-input" [type]="hide?'password':'number'"  formControlName="confirmPassword"   (focus)="notFocused=false" (focusout)="notFocused=true" placeholder="Re-Enter 4 Digit MPin">
+          <mat-icon matSuffix id="blink-icon" (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </div>
+      <div *ngIf="registerForm.controls['confirmPassword'].invalid " class="alert">
+          
+        <div class="error-text" *ngIf="registerForm.controls['confirmPassword'].errors!['pattern'] && notFocused">
+          Enter a valid 4 digit Mpin
+        </div>
+        <div class="error-text" *ngIf="registerForm.controls['confirmPassword'].errors!['length'] && notFocused">
+            MPin should be 4 digit
+          </div>
+          <div class="error-text" *ngIf="registerForm.controls['confirmPassword'].errors!['confirmedValidator']">Password and Confirm Password must be match.</div>
+      </div>
+      <!-- <input
+        type="text"
+        class="form-input"
+        name="password"
+        placeholder="Re-Enter 4 Digit MPin"
+      /> -->
+      <button (click)="gotToHome()" class="signup-btn">SIGN UP</button>
+    </form>
+  </div>

@@ -1,0 +1,77 @@
+.card-right {
+    display: flex;
+    flex-direction: column;
+  
+    margin: 40px 80px 10px 80px;
+    flex-grow: 1;
+  }
+  .form-class {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  #card-heading {
+    color: #ffffff;
+    margin-top: 30px;
+    font-size: 20px;
+    width: 281px;
+    letter-spacing: 1px;
+    line-height: 27px;
+    padding-left: 20px;
+    text-align: start;
+  }
+  .form-input {
+    width: 100%;
+    margin: 8px 0px;
+    outline: none;
+    padding: 18px;
+    border: none;
+  
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: start;
+    box-sizing: border-box;
+  }
+  .form-input::placeholder {
+    /* text-align: start; */
+    font-family: "Open Sans";
+    color: #787e8c;
+    font-size: 16px;
+    font-weight: 600;
+  }
+ 
+  #password-field {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #blink-icon {
+    color: #858585;
+    position: absolute;
+  
+    right: 10px;
+  }
+ 
+  .signup-btn {
+    cursor: pointer;
+    margin-top: 30px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    padding: 12px 30px;
+    border: none;
+    outline: none;
+    width: 136px;
+    color: #0e85ff;
+    font-size: 18px;
+  }
+  .error-text{
+    color: #ED1B2E;
+  font-family: "Open Sans";
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  
+  }

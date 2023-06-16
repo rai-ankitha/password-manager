@@ -1,0 +1,11 @@
+<div class="container">
+   <div class="toast-container" *ngIf="message!=''">{{message}}</div>
+  <div class="card-container">
+    <div class="card-left">
+      <img src="./assets/images/authentication/logo.png" alt="logo" />
+      <div id="logo-text">Protect & Manage every password in your business</div>
+    </div>
+    <div class="verticle-line"></div>
+    <router-outlet ></router-outlet>
+  </div>
+</div>

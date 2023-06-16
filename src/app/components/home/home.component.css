@@ -1,0 +1,128 @@
+.container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+}
+.navbar{
+    width: 5%;
+    height: 100%;
+    background-color: #2892FF;
+    position: relative;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+}
+.content-header{
+    
+    width: 100%;
+    height: 10%;
+    display: flex;
+    background-color: #F5F7FB;
+    padding: 30px 80px;
+}
+.logo-container{
+    flex-grow: 1;
+}
+#web-logo{
+    /* flex-grow: 1; */
+    height: 68px;
+  width: 179px;
+}
+#header-logo{
+
+    padding: 0px;
+    margin: 0px;
+}
+.img-icon{
+    height: 22px;
+  width: 40px;
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+.home-icon{
+    height: 39px;
+    width: 40px;   
+}
+.top-navbar{
+    display: flex;
+    padding: 30px 80px;
+}
+.sites{
+    flex-grow: 1;
+    color: #3C4857;
+  font-family: "Open Sans";
+  font-size: 30px;
+  font-weight: 600;
+  border-bottom: 5px solid #FFA136;
+  border-radius: 2px;
+  padding-bottom: 10px;
+  width: 36px;
+}
+.content-body{
+  display: flex;
+  flex-direction: column;
+ 
+}
+.add-hint{
+    display: flex;
+    justify-content: center;
+    border-radius: 107.5px;
+  background-color: #F5F7FB;
+  width: 50%;
+  justify-self: center;
+  align-self: center;
+  margin: 150px auto;
+  padding: 40px;
+
+}
+.hint-text{
+    height: 72px;
+  width: 380px;
+  line-height: 36px;
+    color: #3C4857;
+  font-family: "Open Sans";
+  font-size: 26px;
+  padding: 50px;
+  text-align: center;
+}
+.search-field{
+    display: flex;
+    width: 25%;
+    justify-content: space-between;
+}
+#search-input{
+    /* height: 32px;
+  width: 245px; */
+ flex-grow: 1;
+    border: none;
+    outline: none;
+    background: url('src/assets/images/home/search.png')no-repeat right;
+    margin: 0;
+    padding: 7px 8px;
+    font-size: 14px;
+    color: inherit;
+    border-bottom: 1px solid #0E85FF;
+    border-radius: inherit;
+}
+#search-input::placeholder{
+    color: #A5A5A5;
+  font-family: "Open Sans";
+  font-size: 18px;
+}
+#search-icn{
+    height: 24px;
+    width: 24px;
+    border-bottom: 1px solid #0E85FF;
+}
+#add-btn{
+    margin-left: 40px;
+}

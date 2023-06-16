@@ -1,0 +1,52 @@
+.container {
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .toast-container{
+    width: 30%;
+    box-sizing: border-box;
+   margin-bottom: 20px;
+    border: 1px solid #97E6B8;
+    border-radius: 2px;
+    background-color: #CBF3DC;
+    padding: 15px 20px ;
+  }
+  .card-container {
+    height: 481px;
+    width: 839px;
+    /* height: 50%;
+    width: 45%; */
+    display: flex;
+    border-radius: 15px;
+  
+    background: linear-gradient(180deg, #20bbff 0%, #0e85ff 100%);
+    box-shadow: 0 8px 18px 10px rgba(0, 0, 0, 0.02);
+  }
+  .card-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 20px;
+  }
+  #logo-text {
+    color: #ffffff;
+    margin-top: 30px;
+    font-size: 20px;
+    width: 281px;
+    letter-spacing: 1px;
+    line-height: 27px;
+  
+    text-align: center;
+  }
+  .verticle-line {
+    width: 1px;
+    opacity: 0.19;
+    background-color: #f5f7fb;
+  }
+  

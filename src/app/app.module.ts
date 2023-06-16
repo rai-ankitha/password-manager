@@ -1,20 +1,36 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatIconModule} from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
-
+import { HomeComponent } from './components/home/home.component';
+import { RouterModule } from '@angular/router';
+import { PopupComponent } from './components/popup/popup.component';
+import { RegisterComponent } from './components/register/register.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    PopupComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    FormsModule,
+    RouterModule.forRoot([]),
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

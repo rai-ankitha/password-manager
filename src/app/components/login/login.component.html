@@ -1,34 +1,36 @@
-<div class="container">
-    <div class="card-container">
-        <div class="card-left">
-<img src="./assets/images/authentication/logo.png" alt="logo">
-<div id="logo-text">Protect & Manage every 
-    password in your business</div>
-        </div>
-        <div class="verticle-line"></div>
-        <div *ngIf="!isSignup" class="card-right">
-            <div id="logo-text">SIGN IN TO YOUR ACCOUNT</div>
-             <form class="form-class" action="">
-                <input type="text" class="form-input" name="mobile" placeholder="Mobile Number">
-                <input type="text" class="form-input" name="password" placeholder="MPin">
-                <div id="forgot-text">Forgot your password?</div>
-                <button  class="login-btn">SIGN IN</button>
-             </form>
-<div (click)="goToSignup()" id="signup-text">Don't have a Account? SIGNUP</div>
-        </div>
 
-
-        <div *ngIf="isSignup" class="card-right">
-            <div id="logo-text">SIGN UP</div>
-             <form class="form-class" action="">
-                <input type="text" class="form-input" name="mobile" placeholder="Enter Mobile Number">
-                <input type="text" class="form-input" name="password" placeholder="Enter 4 Digit MPin">
-                <input type="text" class="form-input" name="password" placeholder="Re-Enter 4 Digit MPin">
-                <button class="signin-btn">SIGN UP</button>
-             </form>
-
+    <div class="card-right">
+      <div id="card-heading">SIGN IN TO YOUR ACCOUNT</div>
+      <form [formGroup]="loginForm" class="form-class" action="">
+        <input
+          type="email"
+          class="form-input"
+          formControlName="email" (focus)="notFocused=false" (focusout)="notFocused=true"
+          placeholder="Email Id"
+        />
+        <div *ngIf="loginForm.controls['email'].invalid&& (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)"  class="alert">
+             
+        <div class="error-text" *ngIf="loginForm.controls['email'].errors!['required']">
+            Please enter Email
+          </div>
+          <div class="error-text" *ngIf="loginForm.controls['email'].errors!['pattern'] && notFocused">
+            Invalid email address
+          </div>
+          </div>
+          <div id="password-field"><input class="form-input" [type]="hide?'password':'number'"  formControlName="password"   (focus)="notFocused=false" (focusout)="notFocused=true" placeholder="Re-Enter 4 Digit MPin">
+            <mat-icon matSuffix id="blink-icon" (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </div>
+          <div *ngIf="loginForm.controls['password'].invalid&& (loginForm.controls['password'].dirty || loginForm.controls['password'].touched) " class="alert">
+              
+            <div class="error-text" *ngIf="loginForm.controls['password'].errors!['pattern'] && notFocused">
+              Enter a valid 4 digit Mpin
+            </div>
+          </div>
+        <div id="forgot-text">Forgot your password?</div>
+        <button (click)="gotToHome()" class="login-btn">SIGN IN</button>
+      </form>
+      <div (click)="goToSignup()" id="signup-text">
+        Don't have a Account? SIGNUP
+      </div>
     </div>
-</div>
-
 
