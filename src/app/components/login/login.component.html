@@ -17,7 +17,7 @@
             Invalid email address
           </div>
           </div>
-          <div id="password-field"><input class="form-input" [type]="hide?'password':'number'"  formControlName="password"   (focus)="notFocused=false" (focusout)="notFocused=true" placeholder="Re-Enter 4 Digit MPin">
+          <div id="password-field"><input class="form-input" [type]="hide?'password':'number'"  formControlName="password"   (focus)="notFocused=false" (focusout)="notFocused=true" placeholder="MPin">
             <mat-icon matSuffix id="blink-icon" (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </div>
           <div *ngIf="loginForm.controls['password'].invalid&& (loginForm.controls['password'].dirty || loginForm.controls['password'].touched) " class="alert">

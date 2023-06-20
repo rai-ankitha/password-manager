@@ -21,7 +21,7 @@ export class AuthService {
   userLogin(email:any,password:any){
 
     const body = {
-      "emailId" : email,
+      "email" : email,
       "password": password
     }
 

@@ -12,13 +12,16 @@ import { RegisterComponent } from './components/register/register.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AddSiteComponent } from './components/add-site/add-site.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
     PopupComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddSiteComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     RouterModule.forRoot([]),
     HttpClientModule,
-    
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

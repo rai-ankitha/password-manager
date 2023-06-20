@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonService } from 'src/app/services/common.service';
 
 @Component({
@@ -7,15 +7,28 @@ import { CommonService } from 'src/app/services/common.service';
   styleUrls: ['./popup.component.css']
 })
 export class PopupComponent implements OnInit{
-constructor(private service: CommonService){}
+constructor(private service: CommonService,private cd: ChangeDetectorRef,){}
 isRegister=false;
 isLogin=false;
 message:any='';
+showMessage=false;
 ngOnInit(): void {
 
-  this.service.data$.subscribe(res => this.message = res) 
+  this.service.data$.subscribe(res => {
+    this.message = res;
+    if(this.message!=''){
+      this.showMessage=true;
+    }
+    this.hideMessage();
+  }) ;
+  
   console.log(`the message  is ${this.message}`);
 
+}
+hideMessage(){
+  setTimeout(() => {
+    this.showMessage = false;
+}, 3000);
 }
 // showRegisterToast(value:string) {
 // this.message=value;

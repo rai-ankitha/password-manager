@@ -1,0 +1,48 @@
+<div id="modal-content-wrapper">
+    <div class="container">
+      <div id="heading">
+        Add Site
+       
+      </div>
+      <form class="form-class">
+        <label class="label-heading" for="url">URL</label>
+        <input class="label-input" type="text" id="url">
+        <div class="flex-class">
+            <div class="form-class">
+                <label class="label-heading" for="site_name">Site Name</label>
+                <input class="flex-input" type="text" id="site_name">
+            </div>
+            
+        <div class="form-class">
+            <label class="label-heading" for="folder">Sector/Folder</label>
+            <div class="flex-class"><input class="flex-input" type="text" id="folder">
+                <img id="drop-icon" src="./assets/images/home/path_copy.png" alt="folder">
+            </div>
+        </div>
+        
+        </div>
+        <div class="flex-class">
+            <div class="form-class">
+                <label class="label-heading" for="user_name">User Name</label>
+        <input class="flex-input" type="text" id="user_name">
+            </div>
+            
+        <div class="form-class">
+            <label class="label-heading" for="password">Site Password</label>
+           <div class="flex-class"><input class="flex-input" type="text" id="password">
+            <mat-icon matSuffix id="blink-icon" (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </div> 
+        </div>
+        
+        </div>
+        
+        <label class="label-heading" for="url">Notes</label>
+        <textarea class="notes-input" id="notes"  rows="5"></textarea>
+ <div class="button-container">
+    <button class="reset-btn">RESET</button>
+    <button class="btn-save">SAVE</button>
+ </div>
+      </form>
+    </div>
+    
+  </div>

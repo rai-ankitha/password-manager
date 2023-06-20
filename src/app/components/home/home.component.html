@@ -5,28 +5,62 @@
       src="./assets/images/home/burger_menu.png"
       alt="menu"
     />
-    <img class="home-icon" src="./assets/images/home/home_icn.png" alt="home" />
+   
+      <img class="home-icon" src="./assets/images/home/home_icn.png" alt="home" />
+     <div class="active-icon"></div>
+
+    <img id="oval" src="./assets/images/home/oval.png" alt="oval">
   </div>
   <div class="content">
     <div class="content-header">
       <div class="logo-container"><img id="web-logo" src="./assets/images/home/logo.png" alt="logo" /></div>
       <img id="header-logo" src="./assets/images/home/sync.png" alt="sync" />
-      <img id="header-logo" src="./assets/images/home/profile.png" alt="profile" />
+      <div class="user-dropdown">
+        <img (click)="profile()" id="header-logo" src="./assets/images/home/profile.png" alt="profile" />
+      <div *ngIf="showDropdown"  class="dropdown-content">
+        <a href="#home"><div id="dropdown-text">Change Password</div>
+          <div class="dropdown-icon"><img src="./assets/images/home/share.png" alt=""></div></a>
+        <a href="#about"><div id="dropdown-text"> Sign Out</div>
+         <div class="dropdown-icon"><img src="./assets/images/home/log_out.png" alt=""></div></a>
+  
+      </div>
+      </div>
+      
     </div>
     <div class="top-navbar">
         <div class="logo-container"><div class="sites">Sites</div></div>
         <div class="search-field">
             <input id="search-input" type="text" placeholder="Search">
             <!-- <img id="search-icn" src="./assets/images/home/search.png" alt="search"> -->
-            <img id="add-btn" src="./assets/images/home/add_btn.png" alt="add">
+            <img (click)="openAddPopup()" id="add-btn" src="./assets/images/home/add_btn.png" alt="add">
         </div>
        
     </div>
     <div class="content-body">
-        <div class="add-hint">
+        <div *ngIf="isEmpty" class="add-hint">
             <div class="hint-text">Please Click on the “+” symbol 
                 to add sites</div>
         </div>
+      
+          <div class="sort-container">
+            <div class="sort-heading">Social Media</div>
+            <div class="filter-number">07</div>
+            <img id="drop-icon" src="./assets/images/home/path_copy.png" alt="folder">
+          </div>
+          <div  class="card-list">
+            <div *ngFor="let iter of iters" class="card-container">
+              <div class="details">
+                <img class="app-icon" src="./assets/images/home/facebook.png" alt="facebook">
+                <div class="column-flex"><div class="app-heading">Facebook</div>
+                <div class="details"> <img id="copy-icon" src="./assets/images/home/copy.png" alt="copy">
+                  <span id="copy-text">Copy Password</span></div>
+               
+              </div>
+               
+              </div>
+              <div class="link-container">www.facebook.com</div>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
-</div>

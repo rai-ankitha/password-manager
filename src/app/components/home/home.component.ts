@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddSiteComponent } from '../add-site/add-site.component';
 
 
 @Component({
@@ -7,7 +9,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-constructor(){}
-
-
+constructor(private dialogRef:MatDialog){}
+showDropdown=false;
+isEmpty=false;
+iters=[
+  {},{},{},{},{},{},{},{},
+];
+profile(){
+  this.showDropdown=! this.showDropdown;
+}
+openAddPopup(){
+  this.dialogRef.open(AddSiteComponent);
+}
 }
