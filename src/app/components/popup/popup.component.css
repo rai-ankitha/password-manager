@@ -8,6 +8,8 @@
     justify-content: center;
   }
   .toast-container{
+    display: flex;
+    justify-content: space-between;
     width: 30%;
     box-sizing: border-box;
    margin-bottom: 20px;
@@ -15,6 +17,15 @@
     border-radius: 2px;
     background-color: #CBF3DC;
     padding: 15px 20px ;
+  }
+  .toast-message{
+    color: #2ECC71;
+    font-size: 14px;
+  }
+  .toast-close{
+    cursor: pointer;
+    height: 24px;
+    width: 24px;
   }
   .card-container {
     height: 481px;

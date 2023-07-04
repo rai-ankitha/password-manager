@@ -11,7 +11,7 @@ constructor(private service: CommonService,private cd: ChangeDetectorRef,){}
 isRegister=false;
 isLogin=false;
 message:any='';
-showMessage=false;
+showMessage=true;
 ngOnInit(): void {
 
   this.service.data$.subscribe(res => {

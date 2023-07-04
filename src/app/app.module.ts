@@ -21,7 +21,8 @@ import { AddSiteComponent } from './components/add-site/add-site.component';
     HomeComponent,
     PopupComponent,
     RegisterComponent,
-    AddSiteComponent
+    AddSiteComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -33,7 +34,8 @@ import { AddSiteComponent } from './components/add-site/add-site.component';
     FormsModule,
     RouterModule.forRoot([]),
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

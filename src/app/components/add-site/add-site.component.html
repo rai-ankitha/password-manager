@@ -1,48 +1,115 @@
 <div id="modal-content-wrapper">
-    <div class="container">
+  <img
+    (click)="closeDialog()"
+    id="close-btn"
+    src="./assets/images/home/close_btn.png"
+    alt="close"
+  />
+  <div class="container">
+    <div class="heading-row">
       <div id="heading">
-        Add Site
-       
+        {{
+          dialogType == "addSite"
+            ? "Add Site"
+            : dialogType == "siteDetails"
+            ? "Site Details"
+            : "Edit"
+        }}
       </div>
-      <form class="form-class">
-        <label class="label-heading" for="url">URL</label>
-        <input class="label-input" type="text" id="url">
-        <div class="flex-class">
-            <div class="form-class">
-                <label class="label-heading" for="site_name">Site Name</label>
-                <input class="flex-input" type="text" id="site_name">
-            </div>
-            
-        <div class="form-class">
-            <label class="label-heading" for="folder">Sector/Folder</label>
-            <div class="flex-class"><input class="flex-input" type="text" id="folder">
-                <img id="drop-icon" src="./assets/images/home/path_copy.png" alt="folder">
-            </div>
-        </div>
-        
-        </div>
-        <div class="flex-class">
-            <div class="form-class">
-                <label class="label-heading" for="user_name">User Name</label>
-        <input class="flex-input" type="text" id="user_name">
-            </div>
-            
-        <div class="form-class">
-            <label class="label-heading" for="password">Site Password</label>
-           <div class="flex-class"><input class="flex-input" type="text" id="password">
-            <mat-icon matSuffix id="blink-icon" (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </div> 
-        </div>
-        
-        </div>
-        
-        <label class="label-heading" for="url">Notes</label>
-        <textarea class="notes-input" id="notes"  rows="5"></textarea>
- <div class="button-container">
-    <button class="reset-btn">RESET</button>
-    <button class="btn-save">SAVE</button>
- </div>
-      </form>
+      <button *ngIf="dialogType=='siteDetails'" (click)="goToEditDetails()" class="edit-btn">EDIT</button>
     </div>
-    
+
+    <form [formGroup]="siteDetailsForm" class="form-class">
+      <label class="label-heading" for="url">URL</label>
+      
+      <input class="label-input" type="text" id="url" [readOnly]="isReadOnly" formControlName="url"/>
+      <div class="flex-class">
+        <div class="form-class">
+          <label class="label-heading" for="site_name">Site Name</label>
+          <input
+            class="flex-input"
+            type="text"
+            
+            [readOnly]="isReadOnly" formControlName="siteName"
+          />
+        </div>
+
+        <div class="form-class">
+          <label class="label-heading" for="folder">Sector/Folder</label>
+          <div class="flex-class">
+            <!-- <input
+              class="flex-input"
+              type="text"
+              id="folder"
+              [readOnly]="isReadOnly" formControlName="sector"
+            />
+            <img (click)="sectorDropdown()"
+              id="drop-icon"
+              src="./assets/images/home/path_copy.png"
+              alt="folder"
+            /> -->
+            <select 
+       
+        class="flex-input" 
+       >
+        <option *ngFor="let media of socialMedia"   [value]="media.label">{{media.label}}</option>
+    </select>
+            <!-- <div *ngIf="showSectorDropdown"  class="dropdown-content">
+              <div id="dropdown-text">Social Media</div>
+  
+            <div id="dropdown-text"> E-Commerce</div>
+            <div id="dropdown-text"> Games</div>
+            <div id="dropdown-text">Health</div>
+            <div id="dropdown-text"> Other</div>
+            
+        
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="flex-class">
+        <div class="form-class">
+          <label class="label-heading" for="user_name">User Name</label>
+          <input
+            class="flex-input"
+            type="text"
+            id="user_name"
+            [readOnly]="isReadOnly" formControlName="userName"
+          />
+        </div>
+
+        <div class="form-class">
+          <label class="label-heading" for="password">Site Password</label>
+          <div class="flex-class">
+            <input (ngModelChange)="checkStrength($event)"
+              class="flex-input"
+              [type]="hide ? 'password' : 'text'"
+              id="password" 
+              [readOnly]="isReadOnly" formControlName="sitePassword"
+            />
+            <div [ngStyle]="{'width': strengthBarWidth,'background-color': strengthBarColor}" class="password-strength"></div>
+            <mat-icon matSuffix id="blink-icon" (click)="hide = !hide">{{
+              hide ? "visibility_off_outline" : "visibility_outline"
+            }}</mat-icon>
+          </div>
+        </div>
+      </div>
+
+      <label class="label-heading" for="url">Notes</label>
+      <textarea
+        class="notes-input"
+        id="notes"
+        rows="5"
+        [readOnly]="isReadOnly" formControlName="notes"
+      ></textarea>
+      <div
+        
+        class="button-container"
+      >
+        <button (click)="resetForm()" [ngStyle]="{ display: dialogType != 'addSite' ? 'none' : 'block' }" class="btn reset-btn">RESET</button>
+        <button (click)="postSiteDetails()" [ngStyle]="{ display: dialogType != 'addSite' ? 'none' : 'block' }" class="btn btn-save">SAVE</button>
+        <button (click)="updateSiteDetails()" *ngIf="dialogType=='editDetails'" [ngClass]="siteDetailsForm.valid ?'btn update-btn':'btn update-disable-btn'">UPDATE</button>
+      </div>
+    </form>
   </div>
+</div>

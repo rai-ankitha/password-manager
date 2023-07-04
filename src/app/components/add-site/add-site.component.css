@@ -1,21 +1,52 @@
+
 #modal-content-wrapper {
   box-sizing: border-box;
-  height: 598px;
+  height: 620px;
   width: 768px;
+position: relative;
+  margin-top:150px;
+
+  border-radius: 10px;
   /* border: 1px solid #979797;
     border-radius: 10px; */
   background-color: #ffffff;
+}
+#close-btn{
+  cursor: pointer;
+  position: absolute;
+  right: -22px;
+    top: -22px;
 }
 .container {
   display: flex;
   flex-direction: column;
   padding: 30px;
 }
+.heading-row{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.edit-btn{
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  border: 2px solid #0e85ff;
+  border-radius: 4px;
+  background-color: #0e85ff;
+  color: #ffffff;
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+}
 #heading {
+  flex-grow: 1;
   color: #3c4857;
   font-family: "Open Sans";
   font-size: 30px;
   font-weight: 600;
+  
 }
 .form-class {
   display: flex;
@@ -31,21 +62,29 @@
   margin-top: 20px;
   box-sizing: border-box;
   height: 36px;
-
+color: #000;
   border: 1px solid #f5f7fb;
   border-radius: 4px;
   background-color: #f5f7fb;
   outline: none;
 }
+
 .flex-class {
+  position: relative;
   display: flex;
   justify-content: space-between;
+}
+.password-strength{
+  position: absolute; 
+  height: 3px;
+  bottom: 0;
 }
 .flex-input {
   margin-top: 20px;
   box-sizing: border-box;
   height: 36px;
   width: 341px;
+  color: black;
   position: relative;
   border: 1px solid #f5f7fb;
   border-radius: 4px;
@@ -54,18 +93,49 @@
 }
 #blink-icon {
   position: absolute;
-  right: 50px;
+  right: 10px;
+  cursor: pointer;
   align-self: center;
   margin-top: 20px;
   color: lightblue;
 }
 #drop-icon {
+  cursor: pointer;
   height: 8.93px;
   width: 14px;
   position: absolute;
-  right: 50px;
+  right: 10px;
   align-self: center;
   margin-top: 20px;
+}
+.dropdown-content {
+  
+  z-index: 99;
+  top: 60px;
+  right: 0px;
+  position: absolute;
+  background-color: #f1f1f1;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  transition: all .5s ease;
+}
+.dropdown-content div{
+  color: black;
+  padding: 18px 25px;
+  text-decoration: none;
+  display: flex;
+  animation: growDown 300ms ease-in-out forwards;
+  transform-origin: top center
+}
+.dropdown-content div:hover{
+  background-color: #ddd
+}
+
+#dropdown-text {
+  width: 150px;
+  color: #535353;
+  font-family: "Open Sans";
+  font-size: 14px;
 }
 .notes-input {
   height: 61px;
@@ -81,30 +151,42 @@
   display: flex;
   margin-top: 20px;
   align-self: flex-end;
+  
 }
-.reset-btn {
+.btn{
+  cursor: pointer;
   box-sizing: border-box;
   padding: 10px 60px;
   border: 2px solid #0e85ff;
   border-radius: 4px;
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+ 
+}
+.reset-btn {
+  
   background-color: #ffffff;
   margin-right: 20px;
   color: #0e85ff;
-  font-family: "Open Sans";
-  font-size: 18px;
-  font-weight: 600;
-  text-align: center;
+ 
 }
 .btn-save {
-  box-sizing: border-box;
-  padding: 10px 60px;
-  border: 2px solid #0e85ff;
-  border-radius: 4px;
+  
   background-color: #0e85ff;
-  margin-right: 20px;
   color: #ffffff;
-  font-family: "Open Sans";
-  font-size: 18px;
-  font-weight: 600;
-  text-align: center;
+  
 }
+.update-disable-btn{
+ 
+  background-color: #98CBFF;
+  color: #ffffff;
+  border: none;
+}
+.update-btn{
+  background-color: #0e85ff;
+  color: #ffffff;
+  border: none;
+}
+

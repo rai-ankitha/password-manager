@@ -51,7 +51,7 @@
   #blink-icon {
     color: #858585;
     position: absolute;
-  
+    cursor: pointer;
     right: 10px;
   }
  
