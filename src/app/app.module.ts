@@ -22,7 +22,7 @@ import { AddSiteComponent } from './components/add-site/add-site.component';
     PopupComponent,
     RegisterComponent,
     AddSiteComponent,
-
+  
   ],
   imports: [
     BrowserModule,
@@ -35,6 +35,7 @@ import { AddSiteComponent } from './components/add-site/add-site.component';
     RouterModule.forRoot([]),
     HttpClientModule,
     MatDialogModule,
+    
   
   ],
   providers: [],

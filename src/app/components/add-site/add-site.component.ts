@@ -25,7 +25,7 @@ export class AddSiteComponent implements OnInit {
   strengthBarWidth: any;
   strengthBarColor: any;
   showSectorDropdown = false;
-  siteId: any;
+ folderValue:string='';
   
   @Input() dialogType = '';
   @Input() siteDetails: any;
@@ -66,41 +66,37 @@ export class AddSiteComponent implements OnInit {
       notes: [''],
     });
   }
-  checkDropValue():string{
-    console.log('erwefsdsd');
+  checkDropValue(value:string){
+    
     
     console.log(this.siteDetailsForm.get('sector')?.value);
-    if(this.siteDetailsForm.get('sector')?.value=='SOCIAL_MEDIA'){
+    if(value=='SOCIAL_MEDIA'){
     
-      return 'Social Media'
+      this.siteDetailsForm.get('sector')?.setValue('Social Media');
     }
-    else if(this.siteDetailsForm.get('sector')?.value=='E_COMMERCE'){
-      return 'E-Commerce'
+    else if(value=='E_COMMERCE'){
+      this.siteDetailsForm.get('sector')?.setValue('E-Commerce');
     }
-    else if(this.siteDetailsForm.get('sector')?.value=='GAMES'){
-      return 'Games'
+    else if(value=='GAMES'){
+      this.siteDetailsForm.get('sector')?.setValue('Games');
+   
     }
-    else if(this.siteDetailsForm.get('sector')?.value=='HEALTH'){
-      return 'Health'
+    else if(value=='HEALTH'){
+      this.siteDetailsForm.get('sector')?.setValue('Health');
     }
     else{
-      return 'Other'
+      this.siteDetailsForm.get('sector')?.setValue('Other');
     }
   }
   ngOnInit(): void {
-    this.siteId = Number(sessionStorage.getItem('id'));
-    for (let item of this.siteDetails) {
-      if (item.siteId == this.siteId) {
-      console.log(item.sector);
-      
-        this.siteDetailsForm.get('url')?.setValue(item.url);
-        this.siteDetailsForm.get('siteName')?.setValue(item.siteName);
-        this.siteDetailsForm.get('sector')?.setValue(item.sector);
-        this.siteDetailsForm.get('userName')?.setValue(item.userName);
-        this.siteDetailsForm.get('sitePassword')?.setValue(item.sitePassword);
-        this.siteDetailsForm.get('notes')?.setValue(item.notes);
-      }
-    }
+    this.siteDetailsForm.get('url')?.setValue(this.siteDetails.url);
+        this.siteDetailsForm.get('siteName')?.setValue(this.siteDetails.siteName);
+this.folderValue=this.siteDetails.siteName;
+        // this.siteDetailsForm.get('sector')?.setValue(this.siteDetails.sector);
+        this.siteDetailsForm.get('userName')?.setValue(this.siteDetails.userName);
+        this.siteDetailsForm.get('sitePassword')?.setValue(this.siteDetails.sitePassword);
+        this.siteDetailsForm.get('notes')?.setValue(this.siteDetails.notes);
+   this.checkDropValue(this.folderValue)
     console.log(this.dialogType);
     if (this.dialogType == 'siteDetails') {
       this.isReadOnly = true;
@@ -120,6 +116,8 @@ export class AddSiteComponent implements OnInit {
   goToEditDetails() {
     this.dialogType = 'editDetails';
     this.isReadOnly = false;
+   
+    
   }
 
   checkStrength(password: string) {
@@ -212,7 +210,7 @@ export class AddSiteComponent implements OnInit {
       .subscribe({
         next: (res: any) => {
           console.log(res);
-          
+          this.addSiteService.getHomeData();
         },
         error: (e) => {
           console.log(e);

@@ -50,9 +50,9 @@
             /> -->
             <select 
        
-        class="flex-input" 
+        class="flex-input" formControlName="sector"
        >
-        <option *ngFor="let media of socialMedia"   [value]="media.label">{{media.label}}</option>
+        <option *ngFor="let media of socialMedia"   [value]='media.label'>{{media.label}}</option>
     </select>
             <!-- <div *ngIf="showSectorDropdown"  class="dropdown-content">
               <div id="dropdown-text">Social Media</div>

@@ -7,16 +7,18 @@ import { environment } from 'src/environments/environment';
 })
 export class SiteService {
  token:any;
+ refreshToken:any;
  headers_object :any;
   constructor(private http: HttpClient) {
+  
+  }
+  getAllSites(){
     this.token = sessionStorage.getItem('access-token'); 
+  
    this.headers_object = new HttpHeaders().set(
       'Authorization',
       'Bearer ' + this.token
     );
-  }
-  getAllSites(){
-   
     const options = {
       headers: this.headers_object,
     }
@@ -35,15 +37,21 @@ export class SiteService {
     const body = {
       url: url,
       siteName: siteName,
-      sector: "Other",
+      sector: sector,
       userName: userName,
       sitePassword: sitePassword,
       notes: notes,
     };
-
-    return this.http.post(environment.url + 'user/add-site', body, {
-      headers: this.headers_object,
-    });
+    this.token = sessionStorage.getItem('access-token'); 
+  
+    this.headers_object = new HttpHeaders().set(
+       'Authorization',
+       'Bearer ' + this.token
+     );
+     const options = {
+       headers: this.headers_object,
+     }
+    return this.http.post(environment.url + 'user/add-site', body, options);
   }
 
   editSiteDetails(
@@ -63,9 +71,15 @@ export class SiteService {
       sitePassword: sitePassword,
       notes: notes,
     };
-
-    return this.http.patch(environment.url + 'sites/1', body, {
-      headers: this.headers_object,
-    });
+    this.token = sessionStorage.getItem('access-token'); 
+  
+    this.headers_object = new HttpHeaders().set(
+       'Authorization',
+       'Bearer ' + this.token
+     );
+     const options = {
+       headers: this.headers_object,
+     }
+    return this.http.patch(environment.url + 'sites/1', body, options);
   }
 }

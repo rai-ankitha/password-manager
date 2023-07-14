@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { PopupComponent } from './components/popup/popup.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/pop-up/login', pathMatch: 'full' },
@@ -15,7 +16,7 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'signup', component: RegisterComponent },
       { path: '', redirectTo: 'login', pathMatch: 'full' },
-    ],
+    ]
   },
 ];
 

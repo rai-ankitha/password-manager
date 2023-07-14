@@ -1,5 +1,5 @@
 <div (click)="$event.stopPropagation()"  class="container">
-  <div class="navbar">
+  <div *ngIf="!isInit" class="navbar">
     <img
       class="menu-icon"
       src="./assets/images/home/burger_menu.png"
@@ -34,7 +34,8 @@
     <div   class="top-navbar">
         <div class="logo-container"><div class="sites">Sites</div></div>
         <div class="search-field">
-            <input id="search-input" type="text" placeholder="Search">
+            <input (keyup)="filterSearch($event)" 
+            [(ngModel)]="searchTerm"  id="search-input" type="text" placeholder="Search">
             <!-- <img id="search-icn" src="./assets/images/home/search.png" alt="search"> -->
             <img (click)="openAddPopup()" id="add-btn" src="./assets/images/home/add_btn.png" alt="add">
         </div>
@@ -51,21 +52,22 @@
             <div class="filter-number">{{siteListLength}}</div>
             <img id="dropdown-icon" (click)="filterDropdown()" src="./assets/images/home/path_copy.png" alt="folder">
             <div *ngIf="showFilterDropdown"  class="filter-dropdown-content">
-              <a href="#home"><div id="dropdown-text">Entertainment</div>
+              <a (click)="searchDropDown('E-COMMERCE')"><div id="dropdown-text">E-Commerce</div>
                 </a>
-              <a href="#about"><div id="dropdown-text"> Others</div>
+              <a (click)="searchDropDown('OTHER')"><div id="dropdown-text"> Other</div>
                </a>
-               <a href="#about"><div id="dropdown-text"> Sports</div>
-               </a><a href="#about"><div id="dropdown-text"> Politics</div>
+               <a (click)="searchDropDown('HEALTH')"><div id="dropdown-text"> Health</div>
+               </a><a (click)="searchDropDown('SOCIAL_MEDIA')"><div id="dropdown-text"> Social Media</div>
                </a>
             </div>
           </div>
+         
           <div  class="card-list">
-            <div *ngFor="let site of siteDetailsList" (click)="goToSiteDetails(site.siteId)" class="card-container">
+            <div *ngFor="let site of siteListData;index as i" (click)="goToSiteDetails(i)" class="card-container">
               <div class="details">
                 <img class="app-icon" [src]=site.imageurl alt="face">
                 <div class="column-flex"><div class="app-heading">{{site.siteName}}</div>
-                <div class="details"> <img id="copy-icon" (click)="copyText($event)" src="./assets/images/home/copy.png" alt="copy">
+                <div class="details"> <img id="copy-icon" (click)="copyText($event,site.sitePassword)" src="./assets/images/home/copy.png" alt="copy">
                   <span id="copy-text">Copy Password</span></div>
                
               </div>
@@ -75,9 +77,9 @@
             </div>
           </div>
         </div>
-        <div *ngIf="addDialog" class="add-site-container">
-          <app-add-site [siteDetails]="siteDetailsList" [dialogType]="dialogType" (onCloseDialog)="closeAddPopup()"></app-add-site>
-        </div>
+      
+          <app-add-site *ngIf="addDialog" class="add-site-container" [siteDetails]="siteDetailsList[formIndex]"  [dialogType]="dialogType" (onCloseDialog)="closeAddPopup()"></app-add-site>
+        
     </div>
     
   </div>
